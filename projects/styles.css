@@ -1,0 +1,46 @@
+body {
+    font-family:Garamond, 'Cormorant Garamond'  , serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    text-align: center;
+}
+
+#gbmCanvas {
+    display: block;
+    margin-bottom: 20px;
+}
+
+label {
+    font-style: italic;
+    margin-bottom: 10px;
+}
+
+input[type="number"] {
+    width: 80px;
+}
+
+button {
+    padding: 8px 16px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+button:active {
+    background-color: #3e8e41;
+}
