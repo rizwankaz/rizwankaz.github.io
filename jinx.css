@@ -4,45 +4,38 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #f0f0f0;
     margin: 0;
-    padding: 20px;
-    box-sizing: border-box;
+    background-color: #f0f0f0;
+}
+
+#login, #counter {
+    text-align: center;
 }
 
 #login {
-    text-align: center;
+    display: block;
 }
 
 #counter {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    width: 100%;
+    display: none;
+    flex-direction: column;
+    gap: 20px;
 }
 
 .counter-container {
-    text-align: center;
-    background: #fff;
+    border: 1px solid #ccc;
     padding: 20px;
-    margin: 10px;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    flex: 1 1 calc(50% - 40px); /* Flexbox for responsiveness */
-    max-width: 300px;
+    background-color: #fff;
 }
 
 button {
     padding: 10px 20px;
-    margin-top: 10px;
     font-size: 16px;
     cursor: pointer;
+    margin-top: 10px;
 }
 
-@media (max-width: 600px) {
-    .counter-container {
-        flex: 1 1 100%; /* Make containers stack on small screens */
-        max-width: 100%;
-    }
+button:hover {
+    background-color: #ddd;
 }
-
