@@ -16,7 +16,7 @@ async function checkPassword() {
         if (data.success) {
             document.getElementById('login').style.display = 'none';
             document.getElementById('counter').style.display = 'flex';
-            loadCounters();  // Load the counters only after a successful login
+            loadCounters();
         } else {
             alert("Incorrect password!");
         }
