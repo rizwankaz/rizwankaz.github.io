@@ -34,9 +34,6 @@ async function loadCounters() {
             document.getElementById(`${counter.name}-count`).textContent = counter.count;
             document.getElementById(`${counter.name}-last-click`).textContent = counter.lastClick;
         });
-
-        // Check for jinx condition after loading counters
-        checkJinx(counters);
     } catch (error) {
         console.error("Error loading counters:", error);
     }
@@ -63,26 +60,8 @@ async function incrementCounter(name) {
             body: JSON.stringify({ name, count: currentCount, lastClick: now })
         });
 
-        // After incrementing, reload counters and check for jinx condition
         loadCounters();
     } catch (error) {
         console.error("Error updating counter:", error);
-    }
-}
-
-function checkJinx(counters) {
-    const samihaCount = parseInt(counters.find(counter => counter.name === 'Samiha').count, 10);
-    const rihanCount = parseInt(counters.find(counter => counter.name === 'Rihan').count, 10);
-
-    if (samihaCount === rihanCount && samihaCount > 0 && rihanCount > 0) {
-        // Display "JINX" in bold
-        const jinxElement = document.getElementById('jinx');
-        jinxElement.style.fontWeight = 'bold';
-        jinxElement.textContent = 'JINX';
-    } else {
-        // Reset style and content if not jinxed
-        const jinxElement = document.getElementById('jinx');
-        jinxElement.style.fontWeight = 'normal';
-        jinxElement.textContent = '';
     }
 }
