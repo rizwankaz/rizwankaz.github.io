@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', async (event) => {
 async function checkPassword() {
     const inputPassword = document.getElementById('password').value;
     try {
-        const response = await fetch('http://localhost:3000/verify-password', {
+        const response = await fetch('http://2607:fb91:3215:5ae9:55da:628e:af47:a61f:3000/verify-password', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
