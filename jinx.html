@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter Page</title>
+    <link rel="stylesheet" href="jinx.css">
+</head>
+<body>
+    <div id="login">
+        <h2>Enter Password</h2>
+        <input type="password" id="password" placeholder="Password">
+        <button onclick="checkPassword()">Submit</button>
+    </div>
+    <div id="counter" style="display: none;">
+        <div class="counter-container">
+            <h2>Samiha</h2>
+            <button onclick="incrementCounter('samiha')">Samiha</button>
+            <p>Count: <span id="samiha-count">0</span></p>
+            <p>Last Click: <span id="samiha-last-click">Never</span></p>
+        </div>
+        <div class="counter-container">
+            <h2>Rihan</h2>
+            <button onclick="incrementCounter('rihan')">Rihan</button>
+            <p>Count: <span id="rihan-count">0</span></p>
+            <p>Last Click: <span id="rihan-last-click">Never</span></p>
+        </div>
+    </div>
+    <script src="jinx.js"></script>
+</body>
+</html>
