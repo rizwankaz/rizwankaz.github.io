@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', async (event) => {
 async function checkPassword() {
     const inputPassword = document.getElementById('password').value;
     try {
-        const response = await fetch('https://b482-2607-fb91-3215-5ae9-55da-628e-af47-a61f.ngrok-free.app/verify-password', {
+        const response = await fetch('https://df45-2607-fb91-3215-5ae9-55da-628e-af47-a61f.ngrok-free.app/verify-password', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -28,7 +28,7 @@ async function checkPassword() {
 
 async function loadCounters() {
     try {
-        const response = await fetch('https://b482-2607-fb91-3215-5ae9-55da-628e-af47-a61f.ngrok-free.app/counters');
+        const response = await fetch('https://df45-2607-fb91-3215-5ae9-55da-628e-af47-a61f.ngrok-free.app/counters');
         const counters = await response.json();
         counters.forEach(counter => {
             document.getElementById(`${counter.name}-count`).textContent = counter.count;
@@ -52,7 +52,7 @@ async function incrementCounter(name) {
     lastClickElement.textContent = now;
 
     try {
-        await fetch('https://b482-2607-fb91-3215-5ae9-55da-628e-af47-a61f.ngrok-free.app/counter', {
+        await fetch('https://https://df45-2607-fb91-3215-5ae9-55da-628e-af47-a61f.ngrok-free.app/counter', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
