@@ -1,6 +1,10 @@
 document.addEventListener('DOMContentLoaded', async (event) => {
-    document.getElementById('counter').style.display = 'none';
+    const counterElement = document.getElementById('counter');
+    if (counterElement) {
+        counterElement.style.display = 'none';
+    }
 });
+
 
 async function checkPassword() {
     const inputPassword = document.getElementById('password').value;
