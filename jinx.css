@@ -6,6 +6,8 @@ body {
     height: 100vh;
     background-color: #f0f0f0;
     margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
 #login {
@@ -14,16 +16,20 @@ body {
 
 #counter {
     display: flex;
-    justify-content: space-around;
-    width: 50%;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
 }
 
 .counter-container {
     text-align: center;
     background: #fff;
     padding: 20px;
+    margin: 10px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    flex: 1 1 calc(50% - 40px); /* Flexbox for responsiveness */
+    max-width: 300px;
 }
 
 button {
@@ -32,3 +38,11 @@ button {
     font-size: 16px;
     cursor: pointer;
 }
+
+@media (max-width: 600px) {
+    .counter-container {
+        flex: 1 1 100%; /* Make containers stack on small screens */
+        max-width: 100%;
+    }
+}
+
