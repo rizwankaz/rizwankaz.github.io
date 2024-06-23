@@ -1,32 +1,34 @@
 const password = "samihan1002";  // Set your password here
 
-document.addEventListener('DOMContentLoaded', (event) => {
-    // Load counts and last click times from localStorage
-    if (localStorage.getItem('samihaCount')) {
-        document.getElementById('samiha-count').textContent = localStorage.getItem('samihaCount');
-    }
-    if (localStorage.getItem('rihanCount')) {
-        document.getElementById('rihan-count').textContent = localStorage.getItem('rihanCount');
-    }
-    if (localStorage.getItem('samihaLastClick')) {
-        document.getElementById('samiha-last-click').textContent = localStorage.getItem('samihaLastClick');
-    }
-    if (localStorage.getItem('rihanLastClick')) {
-        document.getElementById('rihan-last-click').textContent = localStorage.getItem('rihanLastClick');
-    }
+document.addEventListener('DOMContentLoaded', async (event) => {
+    document.getElementById('counter').style.display = 'none';
 });
+
+async function loadCounters() {
+    try {
+        const response = await fetch('http://localhost:3000/counters');
+        const counters = await response.json();
+        counters.forEach(counter => {
+            document.getElementById(`${counter.name}-count`).textContent = counter.count;
+            document.getElementById(`${counter.name}-last-click`).textContent = counter.lastClick;
+        });
+    } catch (error) {
+        console.error("Error loading counters:", error);
+    }
+}
 
 function checkPassword() {
     const inputPassword = document.getElementById('password').value;
     if (inputPassword === password) {
         document.getElementById('login').style.display = 'none';
         document.getElementById('counter').style.display = 'flex';
+        loadCounters();  // Load the counters only after a successful login
     } else {
         alert("Incorrect password!");
     }
 }
 
-function incrementCounter(name) {
+async function incrementCounter(name) {
     const countElement = document.getElementById(`${name}-count`);
     const lastClickElement = document.getElementById(`${name}-last-click`);
     
@@ -34,9 +36,19 @@ function incrementCounter(name) {
     currentCount++;
     
     countElement.textContent = currentCount;
-    localStorage.setItem(`${name}Count`, currentCount);
     
     const now = new Date().toLocaleString();
     lastClickElement.textContent = now;
-    localStorage.setItem(`${name}LastClick`, now);
+
+    try {
+        await fetch('http://localhost:3000/counter', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ name, count: currentCount, lastClick: now })
+        });
+    } catch (error) {
+        console.error("Error updating counter:", error);
+    }
 }
