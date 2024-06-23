@@ -28,7 +28,7 @@ async function checkPassword() {
 
 async function loadCounters() {
     try {
-        const response = await fetch('http://localhost:3000/counters');
+        const response = await fetch('http://2607:fb91:3215:5ae9:55da:628e:af47:a61f:3000/counters');
         const counters = await response.json();
         counters.forEach(counter => {
             document.getElementById(`${counter.name}-count`).textContent = counter.count;
@@ -52,7 +52,7 @@ async function incrementCounter(name) {
     lastClickElement.textContent = now;
 
     try {
-        await fetch('http://localhost:3000/counter', {
+        await fetch('http://2607:fb91:3215:5ae9:55da:628e:af47:a61f:3000/counter', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
